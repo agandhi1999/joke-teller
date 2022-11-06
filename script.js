@@ -10,7 +10,7 @@ text = ''
 
 async function getJokes() {
     try {
-        
+        button.disabled = true;
         const reponse = await fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit');
         joke = await reponse.json();
         
@@ -27,7 +27,7 @@ async function getJokes() {
         // console.log(audioText.text());
         
         await audioElement.play();
-        toggleButton();
+        button.disabled = false;
     } catch (error) {
         button.disabled = false
         console.log('Whoops: ', error);
@@ -50,4 +50,3 @@ function getSpeech() {
 
 // Event Listeners
 button.addEventListener('click', getJokes);
-audioElement.addEventListener('ended', toggleButton);
