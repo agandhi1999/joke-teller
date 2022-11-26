@@ -17,7 +17,7 @@ async function getJokes() {
         joke.type === 'single' ? text = joke.joke : text = joke.setup  + " " + joke.delivery
         await getSpeech();
         
-        audioText = await fetch('https://joke-teller-backend.herokuapp.com/', {
+        audioText = await fetch('https://agandhi1999-joke-teller-backend-production.up.railway.app/', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
